@@ -1,7 +1,7 @@
 import { RECEIVE_TRUTH, RESET } from '../actions'
 
 const initialTruthState = {
-  truthVisable: false,
+  truthVisible: false,
   truth: ''
 }
 
@@ -9,8 +9,8 @@ function truth (state = initialTruthState, action) {
   switch (action.type) {
     case RECEIVE_TRUTH:
       return {
-        truthVisiable: true,
-        truth: action.truth
+        truthVisible: true,
+        truth: action.truth.truth_prompt
       }
     case RESET: 
       return {
