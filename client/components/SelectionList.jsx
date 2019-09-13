@@ -67,12 +67,14 @@ var buttonStyle = {
   color: 'black',
   display: 'flex',
   flexDirection: 'row',
-  background: 'yellow'
+  background: 'yellow',
+  alignItems: 'center'
 }
 
 var buttonContainer = {
   display: 'flex',
-  flexDirection: 'row'
+  flexDirection: 'row',
+  justifyContent: 'space-evenly'
 }
 
 function mapStateToProps (state) {

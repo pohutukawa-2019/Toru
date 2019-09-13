@@ -6,7 +6,7 @@ function Button (props) {
       <div className="flip-box">
         <div className="flip-box-inner">
           <div className="flip-box-front">
-            <h2>{props.text}</h2>
+            <h2 style={h2style}>{props.text}</h2>
           </div>
           <div className="flip-box-back">
             <h2>{props.text}</h2>
@@ -17,4 +17,9 @@ function Button (props) {
   )
 }
 
+var h2style = {
+  color: 'red',
+  float: 'right',
+  fontSize: '25px'
+}
 export default Button
