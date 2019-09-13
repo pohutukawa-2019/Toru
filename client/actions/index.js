@@ -63,43 +63,43 @@ export const reset = () => {
   }
 }
 
-// function actions 
+// function actions
 export function getTruth (id) {
-return (dispatch) => {
-  dispatch(requestTruth())
-  return request
-  .get(`/truth/${id}`)
-  .then(res => {
-    dispatch(receiveTruth(res))
-  })
-  .catch(err => {
-    dispatch(showError(err.message))
-  })
-}
+  return (dispatch) => {
+    dispatch(requestTruth())
+    return request
+      .get(`/truth/${id}`)
+      .then(res => {
+        dispatch(receiveTruth(res))
+      })
+      .catch(err => {
+        dispatch(showError(err.message))
+      })
+  }
 }
 
 export function getDare (id) {
-return (dispatch) => {
-  dispatch(requestDare())
-  return request.get(`/dare?${id}`)
-  .then(res => {
-    dispatch(receiveDare(res))
-  })
-  .catch(err => {
-    dispatch(showError(err.message))
-  })
-}
+  return (dispatch) => {
+    dispatch(requestDare())
+    return request.get(`/dare?${id}`)
+      .then(res => {
+        dispatch(receiveDare(res))
+      })
+      .catch(err => {
+        dispatch(showError(err.message))
+      })
+  }
 }
 
 export function getDeer (id) {
   return (dispatch) => {
     dispatch(requestDeer())
     return request.get(`/deer?${id}`)
-    .then(res => {
-      dispatch(receiveDeer(res))
-    })
-    .catch(err => {
-      dispatch(showError(err.message))
-    })
+      .then(res => {
+        dispatch(receiveDeer(res))
+      })
+      .catch(err => {
+        dispatch(showError(err.message))
+      })
   }
-  }
+}

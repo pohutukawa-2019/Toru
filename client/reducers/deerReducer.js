@@ -7,7 +7,7 @@ const initialDeerState = {
 
 function deer (state = initialDeerState, action) {
   switch (action.type) {
-    case RECEIVE_DEER: 
+    case RECEIVE_DEER:
       return {
         deerVisible: true,
         deer: action.deer
