@@ -10,5 +10,6 @@ exports.seed = (knex) => {
     { id: 8, truth_prompt: 'The world ends next week and you can do anything you want (even if it’s illegal). What would you do?' },
     { id: 9, truth_prompt: 'What is the most childish thing that you still do?' },
     { id: 10, truth_prompt: 'If you had to make out with any Disney character, who would it be?' }
+    { id: 11, truth_prompt: 'Who was your 1st crush from school?'}
   ])
 }
