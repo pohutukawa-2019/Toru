@@ -5,60 +5,60 @@ import { connect } from 'react-redux'
 import OutcomeTruth from './OutcomeTruth'
 import OutcomeDare from './OutcomeDare'
 import OutcomeDeer from './OutcomeDeer'
-import Reset from './Reset'
 import Button from './Button'
-
-import { statement } from '@babel/template'
 
 import { getDare, getDeer, getTruth, reset } from '../actions'
 
-function SelectionList ({ dispatch }) {
+function SelectionList (props) {
 
   const truthHandler = (e) => {
     const idNumber = Math.ceil(Math.random() * 10)
-    dispatch(getTruth(idNumber))
+    props.dispatch(getTruth(idNumber))
   }
   
   const dareHandler = (e) => {
     const idNumber = Math.ceil(Math.random() * 10)
-    dispatch(getDare(idNumber))
+    props.dispatch(getDare(idNumber))
   }
 
   const deerHandler = (e) => {
     const idNumber = Math.ceil(Math.random() * 10)
-    dispatch(getDeer(idNumber))
+    props.dispatch(getDeer(idNumber))
   }
 
   const resetHandler = (e) => {
-    dispatch(reset())
+    props.dispatch(reset())
   }
 
   return (
-    <div style={buttonContainer}>
-      <button onClick={truthHandler} name='getTruth'><Button
-        style={buttonStyle}
-        name='getTruth'
-        text={'Truth'}
-      /></button>
-      <button onClick={dareHandler} name='getDare'><Button
-        style={buttonStyle}
-        name='getDare'
-        text={'Dare'}/>
-      </button>
-      <button onClick={deerHandler} name='getDeer'><Button
-        style={buttonStyle}
-        title='getDeer'
-        onClick={clickHandler}
-        text={'Deer'}/>
-      </button>
-      <button onClick={resetHandler} name="reset"><Button
-        style={buttonStyle}
-        title='Reset'
-        onClick={clickHandler}
-        text={'Reset'}/>
-      </button>
+    <>
+      <div style={buttonContainer}>
+        <button onClick={truthHandler} name='getTruth'><Button
+          style={buttonStyle}
+          name='getTruth'
+          text={'Truth'}
+        /></button>
+        <button onClick={dareHandler} name='getDare'><Button
+          style={buttonStyle}
+          name='getDare'
+          text={'Dare'}/>
+        </button>
+        <button onClick={deerHandler} name='getDeer'><Button
+          style={buttonStyle}
+          title='getDeer'
+          text={'Deer'}/>
+        </button>
+        <button onClick={resetHandler} name="reset"><Button
+          style={buttonStyle}
+          title='Reset'
+          text={'Reset'}/>
+        </button>
 
-    </div>
+      </div>
+      {props.dareVisible && <OutcomeDare />}
+      {props.deerVisible && <OutcomeDeer />}
+      {props.truthVisible && <OutcomeTruth />}
+    </>
   )
 }
 
@@ -75,4 +75,12 @@ var buttonContainer = {
   flexDirection: 'row'
 }
 
-export default connect()(SelectionList)
+function mapStateToProps (state) {
+  return {
+    dareVisible: state.dare.dareVisible,
+    deerVisible: state.deer.deerVisible,
+    truthVisible: state.truth.truthVisible
+  }
+} 
+
+export default connect(mapStateToProps)(SelectionList)

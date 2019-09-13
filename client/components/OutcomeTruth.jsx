@@ -1,13 +1,20 @@
 // Displays if the user selects "Truth"
 
 import React from 'react'
+import { connect } from 'react-redux'
 
-function OutcomeTruth () {
+function OutcomeTruth (props) {
   return (
     <div className='truth'>
-      <h1 className='brand-title'>Tell me the truth...</h1>
+      <h1 className='brand-title'>Tell me the truth... {props.truth}</h1>
     </div>
   )
 }
 
-export default OutcomeTruth
+function mapStateToProps (state) {
+  return {
+    truth: state.truth.truth
+  }
+}
+
+export default connect(mapStateToProps)(OutcomeTruth)

@@ -1,4 +1,4 @@
-import { RECEIVE_DEER, RESET } from '../actions'
+import { RECEIVE_DEER, RESET, REQUEST_TRUTH, REQUEST_DARE } from '../actions'
 
 const initialDeerState = {
   deerVisible: false,
@@ -13,6 +13,16 @@ function deer (state = initialDeerState, action) {
         deer: action.deer
       }
     case RESET:
+      return {
+        deerVisible: false,
+        deer: ''
+      }
+    case REQUEST_TRUTH:
+      return {
+        deerVisible: false,
+        deer: ''
+      }
+    case REQUEST_DARE:
       return {
         deerVisible: false,
         deer: ''

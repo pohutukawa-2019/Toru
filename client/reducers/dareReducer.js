@@ -1,4 +1,4 @@
-import { RECEIVE_DARE, RESET } from '../actions'
+import { RECEIVE_DARE, RESET, REQUEST_TRUTH, REQUEST_DEER } from '../actions'
 
 const initialDareState = {
   dareVisible: false,
@@ -13,6 +13,16 @@ function dare (state = initialDareState, action) {
         dare: action.dare
       }
     case RESET:
+      return {
+        dareVisible: false,
+        dare: ''
+      }
+    case REQUEST_DEER:
+      return {
+        dareVisible: false,
+        dare: ''
+      }
+    case REQUEST_TRUTH:
       return {
         dareVisible: false,
         dare: ''
