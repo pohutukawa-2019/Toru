@@ -10,9 +10,9 @@ function truth (state = initialTruthState, action) {
     case RECEIVE_TRUTH:
       return {
         truthVisible: true,
-        truth: action.truth.truth_prompt
+        truth: action.truth
       }
-    case RESET: 
+    case RESET:
       return {
         truthVisible: false,
         truth: ''

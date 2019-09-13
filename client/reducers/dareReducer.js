@@ -10,7 +10,7 @@ function dare (state = initialDareState, action) {
     case RECEIVE_DARE:
       return {
         dareVisible: true,
-        dare: action.dare.dare_prompt
+        dare: action.dare
       }
     case RESET:
       return {

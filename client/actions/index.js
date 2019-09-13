@@ -70,7 +70,7 @@ export function getTruth (id) {
     return request
       .get(`/truth/${id}`)
       .then(res => {
-        dispatch(receiveTruth(res))
+        dispatch(receiveTruth(res.body.truth_prompt))
       })
       .catch(err => {
         dispatch(showError(err.message))
@@ -81,9 +81,9 @@ export function getTruth (id) {
 export function getDare (id) {
   return (dispatch) => {
     dispatch(requestDare())
-    return request.get(`/dare?${id}`)
+    return request.get(`/dare/${id}`)
       .then(res => {
-        dispatch(receiveDare(res))
+        dispatch(receiveDare(res.body.dare_prompt))
       })
       .catch(err => {
         dispatch(showError(err.message))
@@ -94,9 +94,9 @@ export function getDare (id) {
 export function getDeer (id) {
   return (dispatch) => {
     dispatch(requestDeer())
-    return request.get(`/deer?${id}`)
+    return request.get(`/deer/${id}`)
       .then(res => {
-        dispatch(receiveDeer(res))
+        dispatch(receiveDeer(res.body.deer_img))
       })
       .catch(err => {
         dispatch(showError(err.message))

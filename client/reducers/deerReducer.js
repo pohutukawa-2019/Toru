@@ -10,7 +10,7 @@ function deer (state = initialDeerState, action) {
     case RECEIVE_DEER:
       return {
         deerVisible: true,
-        deer: action.deer.deer_img
+        deer: action.deer
       }
     case RESET:
       return {
