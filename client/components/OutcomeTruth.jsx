@@ -1,11 +1,13 @@
-import React from 'react'
-const knex = require('knex')
-const config = require('./knexfile').development
-const conn = knex(config)
+// Displays if the user selects "Truth"
 
-function OutcomeTruth (id) {
-  return conn('truth').select()
-    .where('id', id).first()
+import React from 'react'
+
+function OutcomeTruth () {
+  return (
+    <div className='truth'>
+      <h1 className='brand-title'>Tell me the truth...</h1>
+    </div>
+  )
 }
 
 export default OutcomeTruth
